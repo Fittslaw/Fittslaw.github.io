@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HCI CS 522 - Fitt's law experiment</title>
+    <link rel='stylesheet' href="./css/css/skeleton.css"/>
+    <link rel="stylesheet" href="./css/css/normalize.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="FittsLaw.js"></script>
+    <meta name="author" content="GazeRecorder">
+
+    <meta name="description" content="Accurate & Robust WebCam Online Eye-Tracking.">
+
+    <meta property="og:title" content="GazeCloudAPI | Cross-platform Real-Time Eye-Tracking">
+
+    <meta property="og:description" content="Accurate & Robust WebCam Online Eye-Tracking.">
+
+   <meta property="og:image" content="https://api.gazerecorder.com/gazecloudapi.png">
+
+    <meta property="og:url" content="https://api.gazerecorder.com">
+
+<meta name="twitter:description" content="Accurate & Robust WebCam Online Eye-Tracking.">
+<meta name="twitter:title" content="GazeCloudAPI | Cross-platform Real-Time Eye-Tracking">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="FittsLaw.js"></script>
+</head>
+
+
+<style>
+
+.buttonStartEyeTrack {
+background-color: rgb(255, 102, 0);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+display: block; 
+margin:auto;
+vertical-align: middle;
+font-size: 16px;
+border-radius: 8px;
+}
+</style>   
+
+ <script src="https://api.gazerecorder.com/GazeCloudAPI.js" ></script>
+
+ <script src="https://api.gazerecorder.com/heatmapLive.js" ></script>
+      <style type="text/css">
+         body {
+         overflow: hidden;
+         }
+      </style>
+      <script type = "text/javascript" >
+// var myVar = setInterval(PlotGaze, 5000);
+var com=0;
+var cstart=0;
+GazeCloudAPI.OnCalibrationComplete =function(){ShowHeatMap(); console.log('gaze Calibration Complete'); cstart=1  }
+         GazeCloudAPI.OnCamDenied =  function(){ console.log('camera  access denied')  }
+         GazeCloudAPI.OnError =  function(msg){ console.log('err: ' + msg)  }
+         GazeCloudAPI.UseClickRecalibration = true;
+         GazeCloudAPI.OnResult = PlotGaze; 
+
+            var red_x = 600;
+            var red_y = 300;
+            var count = 0;
+            var d = new Date();
+         function PlotGaze(GazeData) {
+         	// document.getElementById("GazeData").innerHTML = "GazeX: " + GazeData.GazeX + " GazeY: " + GazeData.GazeY;
+             // var object = document.getElementById('item');
+              var fullWidth = window.innerWidth;
+var fullHeight = window.innerHeight;
+
+if (cstart==1){
+if (((Math.round(GazeData.GazeX) < (841)) && (Math.round(GazeData.GazeX) > (739))) && (Math.round(GazeData.GazeY) < (628)) && (Math.round(GazeData.GazeY) > (528))){
+    count = count + 1;
+    console.log("D4-1 ");
+    // console.log("count " + count);
+    if(count==1){
+      // console.log("count is 5 ");
+      // console.log("D4 ");
+      clickedCircle('300D4');
+      // setTimeout(() => {  console.log("World!"); }, 5000);
+      // 
+      count=0
+    }}
+    else if (((Math.round(GazeData.GazeX) < (775)) && (Math.round(GazeData.GazeX) > (673))) && (Math.round(GazeData.GazeY) < (449)) && (Math.round(GazeData.GazeY) > (346))){
+    count = count + 1;
+    console.log("D6-1 ");
+    if(count==1){
+      clickedCircle('300D6');
+      count=0
+    }}
+    else if (((Math.round(GazeData.GazeX) < (942)) && (Math.round(GazeData.GazeX) > (841))) && (Math.round(GazeData.GazeY) < (351)) && (Math.round(GazeData.GazeY) > (250))){
+    count = count + 1;
+    console.log("D8-1 ");
+    if(count==1){
+      clickedCircle('300D8');
+      count=0
+    }}
+    else if (((Math.round(GazeData.GazeX) < (1066)) && (Math.round(GazeData.GazeX) > (966))) && (Math.round(GazeData.GazeY) < (500)) && (Math.round(GazeData.GazeY) > (400))){
+    count = count + 1;
+    console.log("D1-1 ");
+    if(count==1){
+      clickedCircle('300D1');
+      count=0
+    }}}
+    
+if( !document.getElementById("ShowHeatMapId").checked) // gaze plot
+{
+         var x = GazeData.docX;
+         var y = GazeData.docY;
+         
+         var gaze = document.getElementById("gaze");
+         x -= gaze .clientWidth/2;
+         y -= gaze .clientHeight/2;
+  gaze.style.left = x + "px";
+  gaze.style.top = y + "px"; 
+         if(GazeData.state != 0)
+         {
+          if( gaze.style.display  == 'block')
+          gaze  .style.display = 'none';
+         }
+         else
+         {
+          if( gaze.style.display  == 'none')
+          gaze  .style.display = 'block';
+         }
+         
+         
+}
+         }
+
+function handleClickHeatMap(cb) {
+ 
+if( cb.checked)
+{
+  ShowHeatMap();
+   document.getElementById("gaze").style.display = 'none';
+;
+
+}
+else
+   RemoveHeatMap()
+
+}
+
+function start()
+{
+
+document.getElementById("startid").style.display = 'none';
+document.getElementById("stopid").style.display = 'block';
+
+GazeCloudAPI.StartEyeTracking(); 
+GazeCloudAPI.SetFps(15);
+}
+
+function stop()
+{
+
+document.getElementById("startid").style.display = 'block';
+document.getElementById("stopid").style.display = 'none';
+GazeCloudAPI.StopEyeTracking();
+}
+
+      </script>
+   </head>
+   <body >
+
+<div style="text-align: center;display: block" >
+
+
+    <!--   <h1>GazeCloud API </h1>
+  <h4>WebCam Online Eye-Tracking</h4> -->
+   <h2 id="result1"></h2>
+   <h3 id="print"></h3>
+   <h4 id="demo"></h4>
+<br>
+      <button  id = 'startid' class = 'buttonStartEyeTrack'  type="button" onclick="start() " >Start eye tracking</button>
+      <button  id = 'stopid'  style= 'display:none' class = 'buttonStartEyeTrack'   type="button" onclick="stop();">Stop</button>
+      <div  style='background-color: lightblue;'>
+         <p >  
+            <!-- Real-Time Data: -->
+         <p id = "GazeData" > </p>
+         <p id = "HeadPhoseData" > </p>
+         <p id = "HeadRotData" > </p>
+         </p>
+         
+      </div>
+
+      <div id ="gaze" style ='position: absolute;display:none;width: 100px;height: 100px;border-radius: 50%;border: solid 2px  rgba(255, 255,255, .2);  box-shadow: 0 0 100px 3px rgba(125, 125,125, .5); pointer-events: none; z-index: 999999'></div>
+
+<label for="ShowHeatMapId" >
+Show heatmap
+  <input id="ShowHeatMapId" type="checkbox" checked="" onclick='handleClickHeatMap(this);'>
+
+
+</label>
+
+
+</label>
+
+</div>
+<!-- </head>
+<body> -->
+    <!-- <div id="Header" class="nine columns customHeader"> -->
+
+    <div id = 'experimentSettings' class="three columns settings" style="height: inherit">
+        <!-- <h5 class="headercontent titleSub">EXPERIMENT SETTING</h5> -->
+
+        <h6 style="margin-bottom: 1.5rem;margin-left: 0.8rem">DISTANCE</h6>
+        <input type="radio" name="distance" value="120" onclick="changeDist(120);" checked>120
+        <input type="radio" name="distance" value="210" onclick="changeDist(210);">210
+        <input type="radio" name="distance" value="300" onclick="changeDist(300);">300
+
+        <h6 style="margin-bottom: 1.5rem;margin-left: 0.8rem">WIDTH</h6>
+        <input type="radio" name="targetWidth" value="40" onclick="changeRadius(40);" checked>40
+        <input type="radio" name="targetWidth" value="100" onclick="changeRadius(100);">100
+        <!-- <p id="demo"></p> -->
+<!-- <div> -->
+        <br>
+X,Y: <input type="text" id="myText" value=" ">
+<script>
+function showCoords(event) {
+  var x = event.clientX;
+  var y = event.clientY;
+  var coor =  x + "," + y;
+  // alert(coor)
+  document.getElementById("myText").value = coor;
+  // document.getElementById("myText").innerHTML = coor;
+}
+
+function clearCoor() {
+	console.log("out")
+  // document.getElementById("demo").innerHTML = "";
+}
+
+</script> 
+
+    </div>
+
+    <div id="experimentArea" class="six columns settings" onmousemove="showCoords(event)" onmouseout="clearCoor()">
+        <svg id="120D" width="700" height="700" style="pointer-events: all; display: inline" >
+            <!-- <rect cx="0" cy="0" width="700" height="700" class="back"></rect> -->
+            <circle id="120D1" class="circlePattern" cx="370" cy="200" r="20"></circle>
+            <circle id="120D2" class="circlePattern" cx="355.9626665871387" cy="238.56725658119234" r="20"></circle>
+            <circle id="120D3" class="circlePattern" cx="320.41889066001585" cy="259.0884651807325" r="20"></circle>
+            <circle id="120D4" class="circlePattern" cx="280" cy="251.96152422706632" r="20"></circle>
+            <circle id="120D5" class="circlePattern" cx="253.6184427528455" cy="220.52120859954013" r="20"></circle>
+            <circle id="120D6" class="circlePattern" cx="253.6184427528455" cy="179.47879140045987" r="20"></circle>
+            <circle id="120D7" class="circlePattern" cx="280" cy="148.03847577293368" r="20"></circle>
+            <circle id="120D8" class="circlePattern" cx="320.4188906600158" cy="140.9115348192675" r="20"></circle>
+            <circle id="120D9" class="circlePattern" cx="355.96266658713864" cy="161.43274341880763" r="20"></circle>
+        </svg>
+
+        <svg id="210D" width="700" height="700" style="pointer-events: all; display: none">
+            <!-- <rect cx="0" cy="0" width="620" height="400" class="back"></rect> -->
+            <circle id="210D1" class="circlePattern" cx="415" cy="200" r="20" onclick="clickedCircle('210D1')"></circle>
+            <circle id="210D2" class="circlePattern" cx="390.4346665274927" cy="267.49269901708664" r="20" onclick="clickedCircle('210D2');"></circle>
+            <circle id="210D3" class="circlePattern" cx="328.2330586550277" cy="303.40481406628186" r="20" onclick="clickedCircle('210D3');"></circle>
+            <circle id="210D4" class="circlePattern" cx="257.5" cy="290.93266739736606" r="20" onclick="clickedCircle('210D4');"></circle>
+            <circle id="210D5" class="circlePattern" cx="211.33227481747963" cy="235.91211504919522" r="20" onclick="clickedCircle('210D5')"></circle>
+            <circle id="210D6" class="circlePattern" cx="211.33227481747963" cy="164.08788495080478" r="20" onclick="clickedCircle('210D6')"></circle>
+            <circle id="210D7" class="circlePattern" cx="257.49999999999994" cy="109.06733260263397" r="20" onclick="clickedCircle('210D7')"></circle>
+            <circle id="210D8" class="circlePattern" cx="328.23305865502766" cy="96.59518593371814" r="20" onclick="clickedCircle('210D8')"></circle>
+            <circle id="210D9" class="circlePattern" cx="390.43466652749265" cy="132.50730098291336" r="20" onclick="clickedCircle('210D9')"></circle>
+        </svg>
+
+        <svg id="300D" width="700" height="700" style="pointer-events: all; display: none">
+            <!-- <rect cx="0" cy="0" width="620" height="400" class="back"></rect> -->
+            <circle id="300D1" class="circlePattern" cx="460" cy="200" r="20" onclick="clickedCircle('300D1')"></circle>
+            <circle id="300D2" class="circlePattern" cx="424.9066664678467" cy="296.4181414529809" r="20" fill="DeepPink"></circle>
+            <circle id="300D3" class="circlePattern" cx="336.04722665003953" cy="347.72116295183116" r="20" fill="blue"></circle>
+            <circle id="300D4" class="circlePattern" cx="235.00000000000003" cy="329.9038105676658" r="20" onclick="clickedCircle('300D4')" fill="yellow"></circle>
+            <circle id="300D5" class="circlePattern" cx="169.04610688211375" cy="251.30302149885034" r="20" fill="cyan"></circle>
+            <circle id="300D6" class="circlePattern" cx="169.04610688211375" cy="148.69697850114972" r="20" onclick="clickedCircle('300D6')" fill="green"></circle>
+            <circle id="300D7" class="circlePattern" cx="234.99999999999994" cy="70.09618943233426" r="20" fill="brown"></circle>
+            <circle id="300D8" class="circlePattern" cx="336.0472266500395" cy="52.27883704816878" r="20"  onclick="clickedCircle('300D8')" fill="pink"></circle>
+            <circle id="300D9" class="circlePattern" cx="424.90666646784666" cy="103.58185854701907" r="20" fill="purple"></circle>
+        </svg>
+    </div>
+    <div class="two columns buttonSettings" style="margin-top: 6%">
+        <button id="StartButton" onclick="startProcess(value);" value="Start Recording" >Start Recording Data</button>
+        <br>
+        <br>
+        <button id="ExportData" onclick="exportData()">Export Recorded Data</button>
+    </div>
+<!-- </div> -->
+
+</body>
+
+</html>
