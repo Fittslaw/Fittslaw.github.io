@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<div id="one">One</div>
+<div id="two">Two</div>
+<div id="three">Three</div>
+<h1 id="result"></h1>
+
+<style type="text/css">
+div{
+    width:50px;
+    height:50px;
+    background:#EEE;
+}
+#three{
+    position:absolute;
+    left:30px;
+    top:50px;
+    background:#F60;
+}
+
+</style>
+<script type="text/javascript">
+$("#result").text(isOverlap("one","two")+","+isOverlap("one","three")+","+isOverlap("two","three"));
+
+function isOverlap(idOne,idTwo){
+    var objOne=$("#"+idOne),
+        objTwo=$("#"+idTwo),
+        offsetOne = objOne.offset(),
+        offsetTwo = objTwo.offset(),
+        topOne=offsetOne.top,
+        topTwo=offsetTwo.top,
+        leftOne=offsetOne.left,
+        leftTwo=offsetTwo.left,
+        widthOne = objOne.width(),
+        widthTwo = objTwo.width(),
+        heightOne = objOne.height(),
+        heightTwo = objTwo.height();
+    var leftTop = leftTwo > leftOne && leftTwo < leftOne+widthOne 
+            && topTwo > topOne && topTwo < topOne+heightOne,
+        rightTop = leftTwo+widthTwo > leftOne && leftTwo+widthTwo < leftOne+widthOne 
+            && topTwo > topOne && topTwo < topOne+heightOne,
+        leftBottom = leftTwo > leftOne && leftTwo < leftOne+widthOne 
+            && topTwo+heightTwo > topOne && topTwo+heightTwo < topOne+heightOne,
+        rightBottom = leftTwo+widthTwo > leftOne && leftTwo+widthTwo < leftOne+widthOne 
+            && topTwo+heightTwo > topOne && topTwo+heightTwo < topOne+heightOne;
+    return leftTop || rightTop || leftBottom || rightBottom;
+}
+</script>
+</html>
