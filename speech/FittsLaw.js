@@ -10,8 +10,8 @@ var nextTimeStamp;
 var extraFlag = 0;
 var expData = [['A','W','ID','MT','IP']];
 function changeRadius(radius){
-    console.log(radius);
-    console.log(document.querySelector('input[name="distance"]:checked').value);
+//     console.log(radius);
+//     console.log(document.querySelector('input[name="distance"]:checked').value);
     var dist = document.querySelector('input[name="distance"]:checked').value;
     var otherDist = [120,210,300];
     for (var j=0;j<otherDist.length;j++){
@@ -21,7 +21,7 @@ function changeRadius(radius){
         } else {
             element.style.display = 'none';
         }
-        console.log('Done hiding');
+//         console.log('Done hiding');
     }
     for (var i=1;i<10;i++){
         var element=document.getElementById((dist+'D'+i));
@@ -31,7 +31,7 @@ function changeRadius(radius){
 
 
 function changeDist(dist){
-    console.log(dist);
+//     console.log(dist);
     /*
      Hide everything except the selected distance.
      */
@@ -43,14 +43,14 @@ function changeDist(dist){
         } else {
             element.style.display = 'none';
         }
-        console.log('Done hiding');
+//         console.log('Done hiding');
     }
 
     /*
      Check for radius value and change accordingly.
      */
     var radius = document.querySelector('input[name="targetWidth"]:checked').value;
-    console.log(radius);
+//     console.log(radius);
     for (var i=1;i<10;i++){
         var element=document.getElementById((dist+'D'+i));
         element.setAttribute('r',(radius/2));
@@ -68,7 +68,7 @@ function startProcess(buttonValue){
         dist = document.querySelector('input[name="distance"]:checked').value;
         for (var i=1;i<10;i++){
             var element = document.getElementById(dist+'D'+i);
-            console.log(element);
+//             console.log(element);
             element.classList.remove('target');
         }
         document.getElementById('ExportData').style.visibility='visible';
@@ -76,7 +76,7 @@ function startProcess(buttonValue){
         mt=[];
         extraFlag=0;
         dist = document.querySelector('input[name="distance"]:checked').value;
-        console.log(dist);
+//         console.log(dist);
         circleIds=[1,2,3,4,5,6,7,8,9];
         currentCircle=0;
         document.getElementById('StartButton').innerHTML = 'Stop Recording Data';
@@ -98,7 +98,7 @@ function generateNextCircle(){
     }else{
         ;
     }
-    console.log(randomI);
+//     console.log(randomI);
     currentCircle = dist+'D'+randomI;
     var element=document.getElementById(dist+'D'+(randomI));
     console.log(element);
@@ -126,7 +126,7 @@ function clickedCircle(id){
         element.classList.remove('target');
         if (circleIds.length != 0){
             if (circleIds.length == 2){
-                console.log('Pre Extra item time');
+//                 console.log('Pre Extra item time');
                 if (extraFlag == 0){
                     console.log('Extra item time');
                     if (parseInt(id.substr(id.length-1)) == 0){
@@ -168,7 +168,7 @@ function clickedCircle(id){
             document.getElementById('ExportData').style.visibility = 'visible';
         }
     }else{
-        console.log('clicked'+id);
+//         console.log('clicked'+id);
     }
 }
 
