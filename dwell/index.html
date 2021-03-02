@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fitt's law experiment</title>
+    <link rel='stylesheet' href="./css/css/skeleton.css"/>
+    <link rel="stylesheet" href="./css/css/normalize.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="FittsLaw.js"></script>
+    <meta name="author" content="GazeRecorder">
+
+    <meta name="description" content="Accurate & Robust WebCam Online Eye-Tracking.">
+
+    <meta property="og:title" content="GazeCloudAPI | Cross-platform Real-Time Eye-Tracking">
+
+    <meta property="og:description" content="Accurate & Robust WebCam Online Eye-Tracking.">
+
+   <meta property="og:image" content="https://api.gazerecorder.com/gazecloudapi.png">
+
+    <meta property="og:url" content="https://api.gazerecorder.com">
+
+<meta name="twitter:description" content="Accurate & Robust WebCam Online Eye-Tracking.">
+<meta name="twitter:title" content="GazeCloudAPI | Cross-platform Real-Time Eye-Tracking">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="FittsLaw.js"></script>
+</head>
+
+
+<style>
+
+.buttonStartEyeTrack {
+background-color: rgb(255, 102, 0);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+display: block; 
+margin:auto;
+vertical-align: middle;
+font-size: 16px;
+border-radius: 8px;
+}
+</style>   
+
+ <script src="https://api.gazerecorder.com/GazeCloudAPI.js" ></script>
+
+ <script src="https://api.gazerecorder.com/heatmapLive.js" ></script>
+      <style type="text/css">
+         body {
+         overflow: hidden;
+         }
+      </style>
+      <script type = "text/javascript" >
+// var myVar = setInterval(PlotGaze, 5000);
+var com=0;
+var cstart=0;
+
+GazeCloudAPI.OnCalibrationComplete =function(){ShowHeatMap(); console.log('gaze Calibration Complete'); cstart=1  }
+         GazeCloudAPI.OnCamDenied =  function(){ console.log('camera  access denied')  }
+         GazeCloudAPI.OnError =  function(msg){ console.log('err: ' + msg)  }
+         GazeCloudAPI.UseClickRecalibration = true;
+         GazeCloudAPI.OnResult = PlotGaze; 
+
+            var red_x = 600;
+            var red_y = 300;
+            var count = 0;
+            var d = new Date();
+            var shift = ["1"];
+            var a1=0
+            var a2=0
+            var a3=0
+            var a4=0
+            var a5=0
+            var a6=0
+            var a7=0
+            var a8=0
+            var a9=0
+            
+         function PlotGaze(GazeData) {
+         	document.getElementById("GazeData").value = Math.round(GazeData.docX) + ","+ Math.round(GazeData.docY);
+             // var object = document.getElementById('item');
+              var fullWidth = window.innerWidth;
+var fullHeight = window.innerHeight;
+
+if (cstart==1){
+
+console.log(shift.length)
+if(shift.length<7){
+  changeRadius(100)
+  changeDist(300)
+  var x2 = Math.round(GazeData.docX)
+var y2 = Math.round(GazeData.docY)
+var r1 = 40
+var r2 = 40
+console.log("x2",x2)
+console.log("y2",y2)
+// console.log("sol",Math.abs(x2 - 1050))
+// console.log("sol1",Math.abs(y2 - 487))
+if (Math.sqrt( ( x2-1050 ) * ( x2-1050 )  + ( y2-487 ) * ( y2-487 ) ) < ( r1 + r2 )){
+// if ((Math.abs(x2 - 1050) > (r2 + r1)) && (Math.abs(y2 - 487) > (r2 + r1))){
+  console.log("D1")
+  clickedCircle('300D1')
+  count=count+1
+  if(a1==0){
+    shift.push("2")
+    a1=1
+  }
+}
+else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-583 ) * ( y2-583 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 583) > (r2 + r1))){
+  console.log("D2")
+  clickedCircle('300D2')
+  count=count+1
+  if(a2==0){
+    shift.push("3")
+    a2=1
+  }
+}
+else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-684 ) * ( y2-684 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 684) > (r2 + r1))){
+  console.log("D3")
+  clickedCircle('300D3')
+  count=count+1
+  if(a3==0){
+    shift.push("3")
+    a3=1
+  }
+}
+else if (Math.sqrt( ( x2-825 ) * ( x2-825 )  + ( y2-616 ) * ( y2-616 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 825) > (r2 + r1)) && (Math.abs(y2 - 616) > (r2 + r1))){
+  console.log("D4")
+  clickedCircle('300D4')
+  count=count+1
+  if(a4==0){
+    shift.push("4")
+    a4=1
+  }
+}
+else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-538 ) * ( y2-538 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 538) > (r2 + r1))){
+  console.log("D5")
+  clickedCircle('300D5')
+  count=count+1
+  if(a5==0){
+    shift.push("5")
+    a5=1
+  }
+}
+else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-435 ) * ( y2-435 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 435) > (r2 + r1))){
+  console.log("D6")
+  clickedCircle('300D6')
+  count=count+1
+  if(a6==0){
+    shift.push("6")
+    a6=1
+  }
+}
+else if (Math.sqrt( ( x2-824 ) * ( x2-824 )  + ( y2-357 ) * ( y2-357 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 824) > (r2 + r1)) && (Math.abs(y2 - 357) > (r2 + r1))){
+  console.log("D7")
+  clickedCircle('300D7')
+  count=count+1
+  if(a7==0){
+    shift.push("7")
+    a7=1
+  }
+}
+else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-339 ) * ( y2-339 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 339) > (r2 + r1))){
+  console.log("D8")
+  clickedCircle('300D8')
+  count=count+1
+  if(a8==0){
+    shift.push("8")
+    a8=1
+  }
+}
+else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 390) > (r2 + r1))){
+  console.log("D9")
+  clickedCircle('300D9')
+  count=count+1
+  if(a9==0){
+    shift.push("9")
+    a9=1
+  }
+}}
+
+ else if (shift.length>=7){
+    changeRadius(40)
+    var x2 = Math.round(GazeData.docX)
+var y2 = Math.round(GazeData.docY)
+var r1 = 20
+var r2 = 40
+console.log("x2",x2)
+console.log("y2",y2)
+// console.log("sol",Math.abs(x2 - 1050))
+// console.log("sol1",Math.abs(y2 - 487))
+if (Math.sqrt( ( x2-1050 ) * ( x2-1050 )  + ( y2-487 ) * ( y2-487 ) ) < ( r1 + r2 )){
+// if ((Math.abs(x2 - 1050) > (r2 + r1)) && (Math.abs(y2 - 487) > (r2 + r1))){
+  console.log("D1")
+  clickedCircle('300D1')
+}
+else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-583 ) * ( y2-583 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 583) > (r2 + r1))){
+  console.log("D2")
+  clickedCircle('300D2')
+}
+else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-684 ) * ( y2-684 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 684) > (r2 + r1))){
+  console.log("D3")
+  clickedCircle('300D3')
+}
+else if (Math.sqrt( ( x2-825 ) * ( x2-825 )  + ( y2-616 ) * ( y2-616 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 825) > (r2 + r1)) && (Math.abs(y2 - 616) > (r2 + r1))){
+  console.log("D4")
+  clickedCircle('300D4')
+}
+else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-538 ) * ( y2-538 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 538) > (r2 + r1))){
+  console.log("D5")
+  clickedCircle('300D5')
+}
+else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-435 ) * ( y2-435 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 435) > (r2 + r1))){
+  console.log("D6")
+  clickedCircle('300D6')
+}
+else if (Math.sqrt( ( x2-824 ) * ( x2-824 )  + ( y2-357 ) * ( y2-357 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 824) > (r2 + r1)) && (Math.abs(y2 - 357) > (r2 + r1))){
+  console.log("D7")
+  clickedCircle('300D7')
+}
+else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-339 ) * ( y2-339 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 339) > (r2 + r1))){
+  console.log("D8")
+  clickedCircle('300D8')
+}
+else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r1 + r2 )){
+  // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 390) > (r2 + r1))){
+  console.log("D9")
+  clickedCircle('300D9')
+}
+  }
+  
+}
+
+
+
+    
+if( !document.getElementById("ShowHeatMapId").checked) // gaze plot
+{
+         var x = GazeData.docX;
+         var y = GazeData.docY;
+         
+         var gaze = document.getElementById("gaze");
+         x -= gaze .clientWidth/2;
+         y -= gaze .clientHeight/2;
+  gaze.style.left = x + "px";
+  gaze.style.top = y + "px"; 
+         if(GazeData.state != 0)
+         {
+          if( gaze.style.display  == 'block')
+          gaze  .style.display = 'none';
+         }
+         else
+         {
+          if( gaze.style.display  == 'none')
+          gaze  .style.display = 'block';
+         }
+         
+         
+}
+         }
+
+function handleClickHeatMap(cb) {
+ 
+if( cb.checked)
+{
+  ShowHeatMap();
+   document.getElementById("gaze").style.display = 'none';
+;
+
+}
+else
+   RemoveHeatMap()
+
+}
+
+function start()
+{
+
+document.getElementById("startid").style.display = 'none';
+document.getElementById("stopid").style.display = 'block';
+
+GazeCloudAPI.StartEyeTracking(); 
+GazeCloudAPI.SetFps(15);
+}
+
+function stop()
+{
+
+document.getElementById("startid").style.display = 'block';
+document.getElementById("stopid").style.display = 'none';
+GazeCloudAPI.StopEyeTracking();
+}
+
+      </script>
+   </head>
+   <body >
+
+<div style="text-align: center;display: block" onmousemove="showCoords(event)" onmouseout="clearCoor()">
+
+
+    <!--   <h1>GazeCloud API </h1>
+  <h4>WebCam Online Eye-Tracking</h4> -->
+   <h2 id="result1"></h2>
+   <h3 id="print"></h3>
+   <h4 id="demo"></h4>
+<br>
+      <button  id = 'startid' class = 'buttonStartEyeTrack'  type="button" onclick="start() " >Start eye tracking</button>
+      <button  id = 'stopid'  style= 'display:none' class = 'buttonStartEyeTrack'   type="button" onclick="stop();">Stop</button>
+      <!-- <p id = "GazeData" > </p> -->
+      <!-- <div  style='background-color: lightblue;'> -->
+         <p >  
+            <!-- Real-Time Data: -->
+         
+         <p id = "HeadPhoseData" > </p>
+         <p id = "HeadRotData" > </p>
+         </p>
+         val: <input type="text" id = "GazeData" value=" ">
+X,Y: <input type="text" id="myText" value=" ">
+         <button id="StartButton" onclick="startProcess(value);" value="Start Recording" >Start Recording Data</button>
+
+      
+        <button id="ExportData" onclick="exportData()">Export Recorded Data</button>
+        <input type="radio" name="distance" value="120" onclick="changeDist(120);">120 
+        <input type="radio" name="distance" value="210" onclick="changeDist(210);">210
+        <input type="radio" name="distance" value="300" onclick="changeDist(300);"checked>300
+
+        <!-- <h6 style="margin-bottom: 1.5rem;margin-left: 0.8rem">WIDTH</h6> -->
+        <input type="radio" name="targetWidth" value="40" onclick="changeRadius(40);">40
+        <input type="radio" name="targetWidth" value="100" onclick="changeRadius(100);"checked>100
+      <!-- </div> -->
+
+      <div id ="gaze" style ='position: absolute;display:none;width: 100px;height: 100px;border-radius: 50%;border: solid 2px  rgba(255, 255,255, .2);  box-shadow: 0 0 100px 3px rgba(125, 125,125, .5); pointer-events: none; z-index: 999999'></div>
+
+<label for="ShowHeatMapId" >
+Show heatmap
+  <input id="ShowHeatMapId" type="checkbox" checked="" onclick='handleClickHeatMap(this);'>
+
+
+</label>
+
+
+</label>
+
+<!-- </div> -->
+<!-- </head>
+<body> -->
+    <!-- <div id="Header" class="nine columns customHeader"> -->
+
+  <!--   <div id = 'experimentSettings' class="three columns settings" style="height: inherit"> -->
+        <!-- <h5 class="headercontent titleSub">EXPERIMENT SETTING</h5> -->
+
+        <!-- <h6 style="margin-bottom: 1.5rem;margin-left: 0.8rem">DISTANCE</h6> -->
+        
+        <!-- <p id="demo"></p> -->
+<!-- <div> -->
+        
+<!-- <br>
+<p class="hints"></p>
+    <div>
+        <p class="output"><em> </em></p>
+    </div>
+
+    <script src="script.js"></script> -->
+<script>
+function showCoords(event) {
+  var x = event.clientX;
+  var y = event.clientY;
+  var coor =  x + "," + y;
+  // alert(coor)
+  document.getElementById("myText").value = coor;
+  // document.getElementById("myText").innerHTML = coor;
+}
+
+function clearCoor() {
+	console.log("out")
+  // document.getElementById("demo").innerHTML = "";
+}
+
+</script> 
+
+    <!-- </div> -->
+
+    <!-- <div id="experimentArea" class="six columns settings" > -->
+        <svg id="120D" width="2000" height= "100vh" style="pointer-events: all; display: inline" >
+            <!-- <rect cx="0" cy="0" width="700" height="700" class="back"></rect> -->
+            <circle id="120D1" class="circlePattern" cx="950" cy="287" r="20"></circle>
+            <circle id="120D2" class="circlePattern" cx="935.9626665871387" cy="325.56725658119234" r="20"></circle>
+            <circle id="120D3" class="circlePattern" cx="900.41889066001585" cy="346.0884651807325" r="20"></circle>
+            <circle id="120D4" class="circlePattern" cx="860" cy="338.96152422706632" r="20"></circle>
+            <circle id="120D5" class="circlePattern" cx="833.6184427528455" cy="307.52120859954013" r="20"></circle>
+            <circle id="120D6" class="circlePattern" cx="833.6184427528455" cy="266.47879140045987" r="20"></circle>
+            <circle id="120D7" class="circlePattern" cx="860" cy="235.03847577293368" r="20"></circle>
+            <circle id="120D8" class="circlePattern" cx="900.4188906600158" cy="227.9115348192675" r="20"></circle>
+            <circle id="120D9" class="circlePattern" cx="935.96266658713864" cy="248.43274341880763" r="20"></circle>
+        </svg>
+
+        <svg id="210D" width="2000" height= "100vh" style="pointer-events: all; display: none">
+            <!-- <rect cx="0" cy="0" width="620" height="400" class="back"></rect> -->
+            <circle id="210D1" class="circlePattern" cx="995" cy="287" r="20" onclick="clickedCircle('210D1')"></circle>
+            <circle id="210D2" class="circlePattern" cx="970.4346665274927" cy="354.49269901708664" r="20" onclick="clickedCircle('210D2');"></circle>
+            <circle id="210D3" class="circlePattern" cx="908.2330586550277" cy="390.40481406628186" r="20" onclick="clickedCircle('210D3');"></circle>
+            <circle id="210D4" class="circlePattern" cx="837.5" cy="377.93266739736606" r="20" onclick="clickedCircle('210D4');"></circle>
+            <circle id="210D5" class="circlePattern" cx="791.33227481747963" cy="322.91211504919522" r="20" onclick="clickedCircle('210D5')"></circle>
+            <circle id="210D6" class="circlePattern" cx="791.33227481747963" cy="251.08788495080478" r="20" onclick="clickedCircle('210D6')"></circle>
+            <circle id="210D7" class="circlePattern" cx="837.49999999999994" cy="196.06733260263397" r="20" onclick="clickedCircle('210D7')"></circle>
+            <circle id="210D8" class="circlePattern" cx="908.23305865502766" cy="183.59518593371814" r="20" onclick="clickedCircle('210D8')"></circle>
+            <circle id="210D9" class="circlePattern" cx="970.43466652749265" cy="219.50730098291336" r="20" onclick="clickedCircle('210D9')"></circle>
+        </svg>
+
+        <svg id="300D" width="2000" height= "100vh" style="pointer-events: all; display: none">
+            <!-- <rect cx="0" cy="0" width="620" height="400" class="back"></rect> -->
+            <circle id="300D1" class="circlePattern" cx="1050" cy="300" r="20" onclick="clickedCircle('300D1')"></circle>
+            <circle id="300D2" class="circlePattern" cx="1014.9066664678467" cy="396.4181414529809" r="20" ></circle>
+            <circle id="300D3" class="circlePattern" cx="926.04722665003953" cy="447.72116295183116" r="20"></circle>
+            <circle id="300D4" class="circlePattern" cx="825.00000000000003" cy="429.9038105676658" r="20" onclick="clickedCircle('300D4')" ></circle>
+            <circle id="300D5" class="circlePattern" cx="759.04610688211375" cy="351.30302149885034" r="20" ></circle>
+            <circle id="300D6" class="circlePattern" cx="759.04610688211375" cy="248.69697850114972" r="20" onclick="clickedCircle('300D6')" ></circle>
+            <circle id="300D7" class="circlePattern" cx="824.99999999999994" cy="170.09618943233426" r="20" ></circle>
+            <circle id="300D8" class="circlePattern" cx="926.0472266500395" cy="152.27883704816878" r="20"  onclick="clickedCircle('300D8')" ></circle>
+            <circle id="300D9" class="circlePattern" cx="1014.90666646784666" cy="203.58185854701907" r="20"></circle>
+        </svg>
+    <!-- </div> -->
+    <!-- <div class="two columns buttonSettings" style="margin-top: 6%"> -->
+        
+    </div>
+<!-- </div> -->
+
+</body>
+
+</html>
