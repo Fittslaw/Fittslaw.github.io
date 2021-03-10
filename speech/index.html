@@ -81,7 +81,7 @@ window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecogn
           interimTranscript = transcript;
         }
       }
-
+console.log("recognition ongoing ",finalTranscript);
       // document.querySelector('body').innerHTML = finalTranscript;
     }
     recognition.addEventListener('end', recognition.start);
@@ -135,7 +135,12 @@ if (Math.sqrt( ( x2-1050 ) * ( x2-1050 )  + ( y2-487 ) * ( y2-487 ) ) < ( r1 + r
 console.log("recognition ",finalTranscript);
 	console.log("D11")
   // recognition.start()
-var n = finalTranscript.localeCompare(comp);
+	var xx = finalTranscript.slice(
+
+    finalTranscript.lastIndexOf(' ') + 1
+);
+	console.log(xx,comp);
+var n = xx.localeCompare(comp);
 	console.log("n1 = ",n)
   if (n==0){
 	  console.log("D1")
@@ -154,7 +159,12 @@ else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-583 ) * ( y2-583 ) ) < ( r
 	console.log("recognition ",finalTranscript);
 	console.log("D22")
   // recognition.start()
-  var n = finalTranscript.localeCompare(comp);
+		var xx = finalTranscript.slice(
+
+    finalTranscript.lastIndexOf(' ') + 1
+);
+	console.log(xx,comp);
+  var n = xx.localeCompare(comp);
 	console.log("n2 = ",n)
   if (n==0){
 	  console.log("D2")
@@ -173,7 +183,12 @@ else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-684 ) * ( y2-684 ) ) < ( r1 
 	console.log("recognition ",finalTranscript);
 	console.log("D33")
   // recognition.start()
-  var n = finalTranscript.localeCompare(comp);
+		var xx = finalTranscript.slice(
+
+    finalTranscript.lastIndexOf(' ') + 1
+);
+	console.log(xx,comp);
+  var n = xx.localeCompare(comp);
 	console.log("n3 = ",n)
   if (n==0){
 	  console.log("D3")
@@ -191,8 +206,12 @@ else if (Math.sqrt( ( x2-825 ) * ( x2-825 )  + ( y2-616 ) * ( y2-616 ) ) < ( r1 
   
 	console.log("recognition ",finalTranscript);
 	console.log("D44")
-  // recognition.start()
-  var n = finalTranscript.localeCompare(comp);
+		var xx = finalTranscript.slice(
+
+    finalTranscript.lastIndexOf(' ') + 1
+);
+	console.log(xx,comp);
+  var n = xx.localeCompare(comp);
 	console.log("n4 = ",n)
   if (n==0){
 	  console.log("D4")
@@ -210,8 +229,12 @@ else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-538 ) * ( y2-538 ) ) < ( r1 
 //   console.log("D5")
 	console.log("recognition ",finalTranscript);
 	console.log("D55")
-  // recognition.start()
-  var n = finalTranscript.localeCompare(comp);
+  var xx = finalTranscript.slice(
+
+    finalTranscript.lastIndexOf(' ') + 1
+);
+	console.log(xx,comp);
+  var n = xx.localeCompare(comp);
 	console.log("n5 = ",n)
   if (n==0){
 	  console.log("D5")
@@ -230,7 +253,12 @@ else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-435 ) * ( y2-435 ) ) < ( r1 
 	console.log("recognition ",finalTranscript);
 	console.log("D66")
   // recognition.start()
- var n = finalTranscript.localeCompare(comp);
+ var xx = finalTranscript.slice(
+
+    finalTranscript.lastIndexOf(' ') + 1
+);
+	console.log(xx,comp);
+  var n = xx.localeCompare(comp);
 	console.log("n6 = ",n)
   if (n==0){
 	  console.log("D6")
@@ -249,7 +277,12 @@ else if (Math.sqrt( ( x2-824 ) * ( x2-824 )  + ( y2-357 ) * ( y2-357 ) ) < ( r1 
 	console.log("recognition ",finalTranscript);
 	console.log("D77")
   // recognition.start()
-  var n = finalTranscript.localeCompare(comp);
+  var xx = finalTranscript.slice(
+
+    finalTranscript.lastIndexOf(' ') + 1
+);
+	console.log(xx,comp);
+  var n = xx.localeCompare(comp);
 	console.log("n7 = ",n)
   if (n==0){
 	  console.log("D7")
@@ -268,7 +301,12 @@ else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-339 ) * ( y2-339 ) ) < ( r1 
 	console.log("recognition ",finalTranscript);
 	console.log("D88")
   // recognition.start()
- var n = finalTranscript.localeCompare(comp);
+var xx = finalTranscript.slice(
+
+    finalTranscript.lastIndexOf(' ') + 1
+);
+	console.log(xx,comp);
+  var n = xx.localeCompare(comp);
 	console.log("n8 = ",n)
   if (n==0){
 	  console.log("D8")
@@ -288,7 +326,12 @@ else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r
 	console.log("recognition ",finalTranscript);
 	console.log("D99")
   // recognition.start()
-  var n = finalTranscript.localeCompare(comp);
+  var xx = finalTranscript.slice(
+
+    finalTranscript.lastIndexOf(' ') + 1
+);
+	console.log(xx,comp);
+  var n = xx.localeCompare(comp);
 	console.log("n9 = ",n)
   if (n==0){
 	  console.log("D9")
