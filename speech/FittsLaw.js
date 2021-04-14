@@ -143,8 +143,8 @@ function clickedCircle(id){
         }else {
             var radiusExp = document.getElementById(id).getAttribute('r');
             for (var i=0;i<mt.length;i++){
-                if (mt[i]>2500){
-                    alert('Please start the experiment again. One or more of the movement times recorded has been irregular.');
+                if (mt[i]>80000){
+                    alert('Proceed to next');
                     mt=[];
                     console.log(mt);
                     break;
