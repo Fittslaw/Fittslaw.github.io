@@ -82,6 +82,9 @@ GazeCloudAPI.OnCalibrationComplete =function(){ShowHeatMap(); console.log('gaze 
             var a7=0
             var a8=0
             var a9=0
+	    var arr1 = []
+	    var arr2=[]
+	    var result="false"
             
          function PlotGaze(GazeData) {
          	document.getElementById("GazeData").value = Math.round(GazeData.docX) + ","+ Math.round(GazeData.docY);
@@ -107,92 +110,146 @@ console.log("y2",y2)
 if (Math.sqrt( ( x2-1050 ) * ( x2-1050 )  + ( y2-487 ) * ( y2-487 ) ) < ( r1 + r2 )){
 // if ((Math.abs(x2 - 1050) > (r2 + r1)) && (Math.abs(y2 - 487) > (r2 + r1))){
   console.log("D1")
+	if(arr1.length>=3){
+	arr2 = last(arr1,3)
+	result = new Set(arr2).size === 1)
+	}
+	if (result == "true"){
   clickedCircle('300D1')
   count=count+1
   if(a1==0){
     shift.push("D1")
     a1=1
   }
+	}
 }
 else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-583 ) * ( y2-583 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 583) > (r2 + r1))){
   console.log("D2")
+  if(arr1.length>=3){
+	arr2 = last(arr1,3)
+	result = new Set(arr2).size === 1)
+	}
+	if (result == "true"){
   clickedCircle('300D2')
   count=count+1
   if(a2==0){
     shift.push("D2")
     a2=1
   }
+	}
 }
 else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-684 ) * ( y2-684 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 684) > (r2 + r1))){
   console.log("D3")
+  if(arr1.length>=3){
+	arr2 = last(arr1,3)
+	result = new Set(arr2).size === 1)
+	}
+	if (result == "true"){
   clickedCircle('300D3')
   count=count+1
   if(a3==0){
     shift.push("D3")
     a3=1
   }
+	}
 }
 else if (Math.sqrt( ( x2-825 ) * ( x2-825 )  + ( y2-616 ) * ( y2-616 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 825) > (r2 + r1)) && (Math.abs(y2 - 616) > (r2 + r1))){
   console.log("D4")
+  if(arr1.length>=3){
+	arr2 = last(arr1,3)
+	result = new Set(arr2).size === 1)
+	}
+	if (result == "true"){
   clickedCircle('300D4')
   count=count+1
   if(a4==0){
     shift.push("D4")
     a4=1
   }
+	}
 }
 else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-538 ) * ( y2-538 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 538) > (r2 + r1))){
   console.log("D5")
+  if(arr1.length>=3){
+	arr2 = last(arr1,3)
+	result = new Set(arr2).size === 1)
+	}
+	if (result == "true"){
   clickedCircle('300D5')
   count=count+1
   if(a5==0){
     shift.push("D5")
     a5=1
   }
+	}
 }
 else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-435 ) * ( y2-435 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 435) > (r2 + r1))){
   console.log("D6")
+ if(arr1.length>=3){
+	arr2 = last(arr1,3)
+	result = new Set(arr2).size === 1)
+	}
+	if (result == "true"){
   clickedCircle('300D6')
   count=count+1
   if(a6==0){
     shift.push("D6")
     a6=1
   }
+	}
 }
 else if (Math.sqrt( ( x2-824 ) * ( x2-824 )  + ( y2-357 ) * ( y2-357 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 824) > (r2 + r1)) && (Math.abs(y2 - 357) > (r2 + r1))){
   console.log("D7")
+  if(arr1.length>=3){
+	arr2 = last(arr1,3)
+	result = new Set(arr2).size === 1)
+	}
+	if (result == "true"){
   clickedCircle('300D7')
   count=count+1
   if(a7==0){
     shift.push("D7")
     a7=1
   }
+	}
 }
 else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-339 ) * ( y2-339 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 339) > (r2 + r1))){
   console.log("D8")
+  if(arr1.length>=3){
+	arr2 = last(arr1,3)
+	result = new Set(arr2).size === 1)
+	}
+	if (result == "true"){
   clickedCircle('300D8')
   count=count+1
   if(a8==0){
     shift.push("D8")
     a8=1
   }
+	}
 }
 else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 390) > (r2 + r1))){
   console.log("D9")
+  if(arr1.length>=3){
+	arr2 = last(arr1,3)
+	result = new Set(arr2).size === 1)
+	}
+	if (result == "true"){
   clickedCircle('300D9')
   count=count+1
   if(a9==0){
     shift.push("D9")
     a9=1
   }
+	}
 }}
 
  else if (shift.length>=12){
@@ -254,6 +311,13 @@ else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r
   
 }
 
+var last =  function(array, n) {
+  if (array == null) 
+    return void 0;
+  if (n == null) 
+     return array[array.length - 1];
+  return array.slice(Math.max(array.length - n, 0));  
+  };
 
 
     
