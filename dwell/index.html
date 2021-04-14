@@ -92,7 +92,7 @@ var fullHeight = window.innerHeight;
 if (cstart==1){
 
 console.log(shift.length)
-if(shift.length<9){
+if(shift.length<12){
   changeRadius(100)
   changeDist(300)
   var x2 = Math.round(GazeData.docX)
@@ -195,7 +195,7 @@ else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r
   }
 }}
 
- else if (shift.length>=9){
+ else if (shift.length>=12){
     changeRadius(40)
     var x2 = Math.round(GazeData.docX)
 var y2 = Math.round(GazeData.docY)
