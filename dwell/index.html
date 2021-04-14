@@ -85,7 +85,14 @@ GazeCloudAPI.OnCalibrationComplete =function(){ShowHeatMap(); console.log('gaze 
 	    var arr1 = []
 	    var arr2=[]
 	    var result="false"
-            
+      var resf = true
+  //           function last(array, n) {
+  // if (array == null) 
+  //   return void 0;
+  // if (n == null) 
+  //    return array[array.length - 1];
+  // return array.slice(Math.max(array.length - n, 0));  
+  // };
          function PlotGaze(GazeData) {
          	document.getElementById("GazeData").value = Math.round(GazeData.docX) + ","+ Math.round(GazeData.docY);
              // var object = document.getElementById('item');
@@ -94,28 +101,33 @@ var fullHeight = window.innerHeight;
 
 if (cstart==1){
 
-console.log("log",shift.length,arr1,arr2,result)
-if(shift.length<12){
+// console.log("log",shift.length,arr1,arr2,result)
+if(shift.length<10){
   changeRadius(100)
   changeDist(300)
   var x2 = Math.round(GazeData.docX)
 var y2 = Math.round(GazeData.docY)
 var r1 = 40
 var r2 = 40
-console.log("x2",x2)
-console.log("y2",y2)
-	console.log("shift",shift)
+// console.log("x2",x2)
+// console.log("y2",y2)
+	// console.log("shift",shift)
 // console.log("sol",Math.abs(x2 - 1050))
 // console.log("sol1",Math.abs(y2 - 487))
 if (Math.sqrt( ( x2-1050 ) * ( x2-1050 )  + ( y2-487 ) * ( y2-487 ) ) < ( r1 + r2 )){
 // if ((Math.abs(x2 - 1050) > (r2 + r1)) && (Math.abs(y2 - 487) > (r2 + r1))){
   console.log("D1")
 	arr1.push("D1")
-	if(arr1.length>=3){
-	arr2 = last(arr1,3)
-	result = new Set(arr2).size === 1
-	}
-	if (result == "true"){
+	if(arr1.length>=10){
+    console.log("D11")
+	arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+	const isBelowThreshold = (currentValue) => currentValue == "D1";
+  result = arr2.every(isBelowThreshold);
+	console.log("fcomplete1")
+  }
+  console.log("fcomplete1", result, resf)
+  if (result == resf){
+    console.log("D111")
   clickedCircle('300D1')
   count=count+1
   if(a1==0){
@@ -128,11 +140,16 @@ else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-583 ) * ( y2-583 ) ) < ( r
   // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 583) > (r2 + r1))){
   console.log("D2")
 arr1.push("D2")
-  if(arr1.length>=3){
-	arr2 = last(arr1,3)
-	result = new Set(arr2).size === 1
-	}
-	if (result == "true"){
+  if(arr1.length>=10){
+    console.log("D22")
+	arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D2";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete2")
+  }
+  console.log("fcomplete2", result, resf)
+  if (result == resf){
+    console.log("D222")
   clickedCircle('300D2')
   count=count+1
   if(a2==0){
@@ -145,11 +162,16 @@ else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-684 ) * ( y2-684 ) ) < ( r1 
   // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 684) > (r2 + r1))){
   console.log("D3")
 	arr1.push("D3")
-  if(arr1.length>=3){
-	arr2 = last(arr1,3)
-	result = new Set(arr2).size === 1
-	}
-	if (result == "true"){
+  if(arr1.length>=10){
+    console.log("D33")
+	arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D3";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete3")
+  }
+  console.log("fcomplete3", result, resf)
+  if (result == resf){
+    console.log("D333")
   clickedCircle('300D3')
   count=count+1
   if(a3==0){
@@ -162,11 +184,16 @@ else if (Math.sqrt( ( x2-825 ) * ( x2-825 )  + ( y2-616 ) * ( y2-616 ) ) < ( r1 
   // else if ((Math.abs(x2 - 825) > (r2 + r1)) && (Math.abs(y2 - 616) > (r2 + r1))){
   console.log("D4")
 	arr1.push("D4")
-  if(arr1.length>=3){
-	arr2 = last(arr1,3)
-	result = new Set(arr2).size === 1
-	}
-	if (result == "true"){
+  if(arr1.length>=10){
+    console.log("D44")
+	arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D4";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete4")
+  }
+  console.log("fcomplete4", result, resf)
+  if (result == resf){
+    console.log("D444")
   clickedCircle('300D4')
   count=count+1
   if(a4==0){
@@ -179,11 +206,16 @@ else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-538 ) * ( y2-538 ) ) < ( r1 
   // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 538) > (r2 + r1))){
   console.log("D5")
 	arr1.push("D5")
-  if(arr1.length>=3){
-	arr2 = last(arr1,3)
-	result = new Set(arr2).size === 1
-	}
-	if (result == "true"){
+  if(arr1.length>=10){
+    console.log("D55")
+	arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D5";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete5")
+  }
+  console.log("fcomplete5", result, resf)
+	if (result == resf){
+    console.log("D555")
   clickedCircle('300D5')
   count=count+1
   if(a5==0){
@@ -196,11 +228,16 @@ else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-435 ) * ( y2-435 ) ) < ( r1 
   // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 435) > (r2 + r1))){
   console.log("D6")
 	arr1.push("D6")
- if(arr1.length>=3){
-	arr2 = last(arr1,3)
-	result = new Set(arr2).size === 1
-	}
-	if (result == "true"){
+ if(arr1.length>=10){
+  console.log("D66")
+	arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D6";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete6")
+  }
+  console.log("fcomplete6", result, resf)
+  if (result == resf){
+    console.log("D666")
   clickedCircle('300D6')
   count=count+1
   if(a6==0){
@@ -213,11 +250,16 @@ else if (Math.sqrt( ( x2-824 ) * ( x2-824 )  + ( y2-357 ) * ( y2-357 ) ) < ( r1 
   // else if ((Math.abs(x2 - 824) > (r2 + r1)) && (Math.abs(y2 - 357) > (r2 + r1))){
   console.log("D7")
 	arr1.push("D7")
-  if(arr1.length>=3){
-	arr2 = last(arr1,3)
-	result = new Set(arr2).size === 1
-	}
-	if (result == "true"){
+  if(arr1.length>=10){
+    console.log("D77")
+	arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D7";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete7")
+  }
+  console.log("fcomplete7", result, resf)
+  if (result == resf){
+    console.log("D777")
   clickedCircle('300D7')
   count=count+1
   if(a7==0){
@@ -230,11 +272,16 @@ else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-339 ) * ( y2-339 ) ) < ( r1 
   // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 339) > (r2 + r1))){
   console.log("D8")
 	arr1.push("D8")
-  if(arr1.length>=3){
-	arr2 = last(arr1,3)
-	result = new Set(arr2).size === 1
-	}
-	if (result == "true"){
+  if(arr1.length>=10){
+    console.log("D88")
+	arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D8";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete8")
+  }
+  console.log("fcomplete8", result, resf)
+  if (result == resf){
+    console.log("D888")
   clickedCircle('300D8')
   count=count+1
   if(a8==0){
@@ -247,11 +294,16 @@ else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r
   // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 390) > (r2 + r1))){
   console.log("D9")
 	arr1.push("D9")
-  if(arr1.length>=3){
-	arr2 = last(arr1,3)
-	result = new Set(arr2).size === 1
-	}
-	if (result == "true"){
+  if(arr1.length>=10){
+    console.log("D99")
+	arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D9";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete9")
+  }
+  console.log("fcomplete9", result, resf)
+  if (result == resf){
+    console.log("D999")
   clickedCircle('300D9')
   count=count+1
   if(a9==0){
@@ -261,72 +313,219 @@ else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r
 	}
 }}
 
- else if (shift.length>=12){
+ else if (shift.length>=10){
     changeRadius(40)
     var x2 = Math.round(GazeData.docX)
 var y2 = Math.round(GazeData.docY)
 var r1 = 20
 var r2 = 40
-console.log("x2",x2)
-console.log("y2",y2)
+// console.log("x2",x2)
+// console.log("y2",y2)
 // console.log("sol",Math.abs(x2 - 1050))
 // console.log("sol1",Math.abs(y2 - 487))
 if (Math.sqrt( ( x2-1050 ) * ( x2-1050 )  + ( y2-487 ) * ( y2-487 ) ) < ( r1 + r2 )){
 // if ((Math.abs(x2 - 1050) > (r2 + r1)) && (Math.abs(y2 - 487) > (r2 + r1))){
   console.log("D1")
+  arr1.push("D1")
+  if(arr1.length>=10){
+    console.log("D11")
+  arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D1";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete1")
+  }
+  console.log("fcomplete1", result, resf)
+  if (result == resf){
+    console.log("D1")
   clickedCircle('300D1')
+  count=count+1
+  if(a8==0){
+    shift.push("D1")
+    a8=1
+  }
+  }
 }
 else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-583 ) * ( y2-583 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 583) > (r2 + r1))){
   console.log("D2")
+  arr1.push("D2")
+  if(arr1.length>=10){
+    console.log("D22")
+  arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D2";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete2")
+  }
+  console.log("fcomplete2", result, resf)
+  if (result == resf){
+    console.log("D222")
   clickedCircle('300D2')
+  count=count+1
+  if(a8==0){
+    shift.push("D2")
+    a8=1
+  }
+  }
 }
 else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-684 ) * ( y2-684 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 684) > (r2 + r1))){
   console.log("D3")
+  arr1.push("D3")
+  if(arr1.length>=10){
+    console.log("D33")
+  arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D3";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete3")
+  }
+  console.log("fcomplete3", result, resf)
+  if (result == resf){
+    console.log("D333")
   clickedCircle('300D3')
+  count=count+1
+  if(a8==0){
+    shift.push("D3")
+    a8=1
+  }
+  }
 }
 else if (Math.sqrt( ( x2-825 ) * ( x2-825 )  + ( y2-616 ) * ( y2-616 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 825) > (r2 + r1)) && (Math.abs(y2 - 616) > (r2 + r1))){
   console.log("D4")
+  arr1.push("D4")
+  if(arr1.length>=10){
+    console.log("D44")
+  arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D4";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete4")
+  }
+  console.log("fcomplete4", result, resf)
+  if (result == resf){
+    console.log("D444")
   clickedCircle('300D4')
+  count=count+1
+  if(a8==0){
+    shift.push("D4")
+    a8=1
+  }
+  }
 }
 else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-538 ) * ( y2-538 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 538) > (r2 + r1))){
   console.log("D5")
+  arr1.push("D5")
+  if(arr1.length>=10){
+    console.log("D55")
+  arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D5";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete5")
+  }
+  console.log("fcomplete5", result, resf)
+  if (result == resf){
+    console.log("D555")
   clickedCircle('300D5')
+  count=count+1
+  if(a8==0){
+    shift.push("D5")
+    a8=1
+  }
+  }
 }
 else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-435 ) * ( y2-435 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 759) > (r2 + r1)) && (Math.abs(y2 - 435) > (r2 + r1))){
   console.log("D6")
+  arr1.push("D6")
+  if(arr1.length>=10){
+    console.log("D66")
+  arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D6";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete6")
+  }
+  console.log("fcomplete6", result, resf)
+  if (result == resf){
+    console.log("D666")
   clickedCircle('300D6')
+  count=count+1
+  if(a8==0){
+    shift.push("D6")
+    a8=1
+  }
+  }
 }
 else if (Math.sqrt( ( x2-824 ) * ( x2-824 )  + ( y2-357 ) * ( y2-357 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 824) > (r2 + r1)) && (Math.abs(y2 - 357) > (r2 + r1))){
   console.log("D7")
+  arr1.push("D7")
+  if(arr1.length>=10){
+    console.log("D77")
+  arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D7";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete7")
+  }
+  console.log("fcomplete7", result, resf)
+  if (result == resf){
+    console.log("D777")
   clickedCircle('300D7')
+  count=count+1
+  if(a8==0){
+    shift.push("D7")
+    a8=1
+  }
+  }
 }
 else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-339 ) * ( y2-339 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 926) > (r2 + r1)) && (Math.abs(y2 - 339) > (r2 + r1))){
   console.log("D8")
+  arr1.push("D8")
+  if(arr1.length>=10){
+    console.log("D88")
+  arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D8";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete8")
+  }
+  console.log("fcomplete8", result, resf)
+  if (result == resf){
+    console.log("D888")
   clickedCircle('300D8')
+  count=count+1
+  if(a8==0){
+    shift.push("D8")
+    a8=1
+  }
+  }
 }
 else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r1 + r2 )){
   // else if ((Math.abs(x2 - 1014) > (r2 + r1)) && (Math.abs(y2 - 390) > (r2 + r1))){
   console.log("D9")
+  arr1.push("D9")
+  if(arr1.length>=10){
+    console.log("D99")
+  arr2 = arr1.slice(Math.max(arr1.length - 10, 1))
+  const isBelowThreshold = (currentValue) => currentValue == "D9";
+  result = arr2.every(isBelowThreshold);
+  console.log("fcomplete9")
+  }
+  console.log("fcomplete9", result, resf)
+  if (result == resf){
+    console.log("D999")
   clickedCircle('300D9')
+  count=count+1
+  if(a8==0){
+    shift.push("D9")
+    a8=1
+  }
+  }
 }
   }
   
 }
 
-var last =  function(array, n) {
-  if (array == null) 
-    return void 0;
-  if (n == null) 
-     return array[array.length - 1];
-  return array.slice(Math.max(array.length - n, 0));  
-  };
+
 
 
     
