@@ -336,8 +336,8 @@ GazeCloudAPI.StopEyeTracking();
          <p id = "HeadPhoseData" > </p>
          <p id = "HeadRotData" > </p>
          </p>
-         val: <input type="text" id = "GazeData" value=" ">
-X,Y: <input type="text" id="myText" value=" ">
+         Gaze: <input type="text" id = "GazeData" value=" ">
+Cursor: <input type="text" id="myText" value=" ">
          <button id="StartButton" onclick="startProcess(value);" value="Start Recording" >Start Recording Data</button>
 
       
@@ -350,9 +350,9 @@ X,Y: <input type="text" id="myText" value=" ">
         <input type="radio" name="targetWidth" value="40" onclick="changeRadius(40);">40
         <input type="radio" name="targetWidth" value="100" onclick="changeRadius(100);"checked>100
       <!-- </div> -->
-<img id="gaze" src=
-"cursor.png" style ='position: absolute;width:15px;height:17px;pointer-events: none;' />
-<!--       <div id ="gaze" style ='position: absolute;display:none;width: 100px;height: 100px;border-radius: 50%;border: solid 2px  rgba(255, 255,255, .2);  box-shadow: 0 0 100px 3px rgba(125, 125,125, .5); pointer-events: none; z-index: 999999'></div> -->
+<!-- <img id="gaze" src=
+"cursor.png" style ='position: absolute;width:15px;height:17px;pointer-events: none;' /> -->
+      <div id ="gaze" style ='position: absolute;display:none;width: 20px;height: 20px;border-radius: 50%;border: solid 2px  rgba(255, 255,255, .2);  box-shadow: 0 0 100px 3px rgba(125, 125,125, .5); pointer-events: none; z-index: 999999'></div>
 
 <label for="ShowHeatMapId" >
 Show heatmap
