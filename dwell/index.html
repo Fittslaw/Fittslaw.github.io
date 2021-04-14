@@ -101,6 +101,7 @@ var r1 = 40
 var r2 = 40
 console.log("x2",x2)
 console.log("y2",y2)
+	console.log("shift",shift)
 // console.log("sol",Math.abs(x2 - 1050))
 // console.log("sol1",Math.abs(y2 - 487))
 if (Math.sqrt( ( x2-1050 ) * ( x2-1050 )  + ( y2-487 ) * ( y2-487 ) ) < ( r1 + r2 )){
@@ -109,7 +110,7 @@ if (Math.sqrt( ( x2-1050 ) * ( x2-1050 )  + ( y2-487 ) * ( y2-487 ) ) < ( r1 + r
   clickedCircle('300D1')
   count=count+1
   if(a1==0){
-    shift.push("2")
+    shift.push("D1")
     a1=1
   }
 }
@@ -119,7 +120,7 @@ else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-583 ) * ( y2-583 ) ) < ( r
   clickedCircle('300D2')
   count=count+1
   if(a2==0){
-    shift.push("3")
+    shift.push("D2")
     a2=1
   }
 }
@@ -129,7 +130,7 @@ else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-684 ) * ( y2-684 ) ) < ( r1 
   clickedCircle('300D3')
   count=count+1
   if(a3==0){
-    shift.push("3")
+    shift.push("D3")
     a3=1
   }
 }
@@ -139,7 +140,7 @@ else if (Math.sqrt( ( x2-825 ) * ( x2-825 )  + ( y2-616 ) * ( y2-616 ) ) < ( r1 
   clickedCircle('300D4')
   count=count+1
   if(a4==0){
-    shift.push("4")
+    shift.push("D4")
     a4=1
   }
 }
@@ -149,7 +150,7 @@ else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-538 ) * ( y2-538 ) ) < ( r1 
   clickedCircle('300D5')
   count=count+1
   if(a5==0){
-    shift.push("5")
+    shift.push("D5")
     a5=1
   }
 }
@@ -159,7 +160,7 @@ else if (Math.sqrt( ( x2-759 ) * ( x2-759 )  + ( y2-435 ) * ( y2-435 ) ) < ( r1 
   clickedCircle('300D6')
   count=count+1
   if(a6==0){
-    shift.push("6")
+    shift.push("D6")
     a6=1
   }
 }
@@ -169,7 +170,7 @@ else if (Math.sqrt( ( x2-824 ) * ( x2-824 )  + ( y2-357 ) * ( y2-357 ) ) < ( r1 
   clickedCircle('300D7')
   count=count+1
   if(a7==0){
-    shift.push("7")
+    shift.push("D7")
     a7=1
   }
 }
@@ -179,7 +180,7 @@ else if (Math.sqrt( ( x2-926 ) * ( x2-926 )  + ( y2-339 ) * ( y2-339 ) ) < ( r1 
   clickedCircle('300D8')
   count=count+1
   if(a8==0){
-    shift.push("8")
+    shift.push("D8")
     a8=1
   }
 }
@@ -189,7 +190,7 @@ else if (Math.sqrt( ( x2-1014 ) * ( x2-1014 )  + ( y2-390 ) * ( y2-390 ) ) < ( r
   clickedCircle('300D9')
   count=count+1
   if(a9==0){
-    shift.push("9")
+    shift.push("D9")
     a9=1
   }
 }}
@@ -352,7 +353,7 @@ Cursor: <input type="text" id="myText" value=" ">
       <!-- </div> -->
 <!-- <img id="gaze" src=
 "cursor.png" style ='position: absolute;width:15px;height:17px;pointer-events: none;' /> -->
-      <div id ="gaze" style ='position: absolute;display:none;width: 20px;height: 20px;border-radius: 50%;border: solid 2px  rgba(255, 255,255, .2);  box-shadow: 0 0 100px 3px rgba(125, 125,125, .5); pointer-events: none; z-index: 999999'></div>
+      <div id ="gaze" style ='position: absolute;display:none;width: 20px;height: 20px;border-radius: 50%;border: solid 2px  rgba(0, 0, 0, .2);  box-shadow: 0 0 100px 3px rgba(125, 125,125, .5); pointer-events: none; z-index: 999999'></div>
 
 <label for="ShowHeatMapId" >
 Show heatmap
